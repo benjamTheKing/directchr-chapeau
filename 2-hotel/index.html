@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direct CHR — L'hôtel en coupe</title>
+<meta name="description" content="Centrale d'achat CHR, direct fabricant : pour chaque espace de l'hôtel, le textile, les revêtements muraux, les sols et le mobilier, avec un seul compte professionnel.">
+<link rel="preload" href="../assets/fonts/font-archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/font-geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/shared.css">
+<link rel="stylesheet" href="../assets/catalogue/core.css">
+<link rel="stylesheet" href="style.css">
+<script src="../assets/catalogue/core.js" defer></script>
+<script src="hotel.js" defer></script>
+<script src="app.js" defer></script>
+<script src="../assets/propositions.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="topbar-track">
+    <span>Centrale d'achat CHR</span><span class="dot-sep"></span>
+    <span>Entrez par l'espace : chambres, couloirs, lobby, restaurant, spa, terrasse</span><span class="dot-sep"></span>
+    <span>Un compte pro pour les quatre univers</span><span class="dot-sep"></span>
+    <span>Boutique réservée aux professionnels</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-row">
+      <a class="logo" href="./" aria-label="Direct CHR, accueil">
+        <span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span>
+      </a>
+      <form class="search" action="../recherche/" role="search">
+        <svg class="search-ico"><use href="#i-search"/></svg>
+        <label class="vh" for="q-top">Rechercher dans les quatre catalogues</label>
+        <input id="q-top" name="q" type="search" autocomplete="off" data-rotate placeholder="moquette couloir Cfl-s1…">
+        <span class="scope">
+          <label class="vh" for="scope-top">Univers</label>
+          <select id="scope-top" name="u" data-scope-select>
+            <option value="">Tout</option>
+            <option value="textile">Textile</option>
+            <option value="mural">Mural</option>
+            <option value="sol">Sol</option>
+            <option value="mobilier">Mobilier</option>
+          </select>
+          <svg><use href="#i-chev"/></svg>
+        </span>
+      </form>
+      <div class="hdr-actions">
+        <button class="icon-btn lang" type="button"><svg><use href="#i-globe"/></svg><span class="t">Français</span></button>
+        <a class="icon-btn" href="../projet/" aria-label="Projet en cours"><svg><use href="#i-bag"/></svg><span class="t">Projet</span><span class="hdr-count" data-count="dchr-projet" data-n="0">0</span></a>
+        <a class="btn btn-sm" href="#compte">Inscription</a>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Espaces et univers">
+      <div class="nav-scroll">
+        <a class="uni-tab sp-tab" data-sp="chambres" href="espace/?e=chambres">Chambres</a>
+        <a class="uni-tab sp-tab" data-sp="couloirs" href="espace/?e=couloirs">Couloirs</a>
+        <a class="uni-tab sp-tab" data-sp="lobby" href="espace/?e=lobby">Lobby</a>
+        <a class="uni-tab sp-tab" data-sp="restaurant" href="espace/?e=restaurant">Restaurant &amp; bar</a>
+        <a class="uni-tab sp-tab" data-sp="spa" href="espace/?e=spa">Spa</a>
+        <a class="uni-tab sp-tab" data-sp="terrasse" href="espace/?e=terrasse">Terrasse</a>
+        <span class="nav-sep"></span>
+        <a class="uni-tab mini" style="--u: var(--u-textile)" href="../textile/"><span class="d"></span>Textile</a>
+        <a class="uni-tab mini" style="--u: var(--u-mural)" href="../mural/"><span class="d"></span>Mural</a>
+        <a class="uni-tab mini" style="--u: var(--u-sol)" href="../sol/"><span class="d"></span>Sol</a>
+        <a class="uni-tab mini" style="--u: var(--u-mobilier)" href="../mobilier/"><span class="d"></span>Mobilier</a>
+      </div>
+      <span class="nav-live"><span class="live-dot"></span>4 univers en ligne</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="coupe">
+    <div class="hero-grid-bg"></div>
+    <div class="wrap">
+      <div class="hero-in">
+        <div class="hero-copy">
+          <p class="eyebrow">Centrale d'achat CHR · Par espace</p>
+          <h1>Choisissez l'espace. <span class="lt">On habille tout l'étage.</span></h1>
+          <p class="hero-lead">Pour chaque espace de l'hôtel, le sol, les murs, le textile et le mobilier qui vont ensemble, avec le classement à viser. Un seul compte professionnel, et chaque usine livre en direct.</p>
+          <div class="sp-index" role="group" aria-label="Espaces de l'hôtel">
+            <button class="sp-chip" type="button" data-sp="terrasse" aria-pressed="false"><span class="lvl">R+4</span><span class="nm">Terrasse</span></button>
+            <button class="sp-chip" type="button" data-sp="chambres" aria-pressed="false"><span class="lvl">R+1–R+3</span><span class="nm">Chambres</span></button>
+            <button class="sp-chip" type="button" data-sp="couloirs" aria-pressed="false"><span class="lvl">R-1–R+4</span><span class="nm">Couloirs</span></button>
+            <button class="sp-chip" type="button" data-sp="lobby" aria-pressed="false"><span class="lvl">RDC</span><span class="nm">Lobby</span></button>
+            <button class="sp-chip" type="button" data-sp="restaurant" aria-pressed="false"><span class="lvl">RDC</span><span class="nm">Restaurant &amp; bar</span></button>
+            <button class="sp-chip" type="button" data-sp="spa" aria-pressed="false"><span class="lvl">R-1</span><span class="nm">Spa</span></button>
+          </div>
+          <div class="hero-cta">
+            <a class="btn" href="#compte">Ouvrir un compte pro <svg><use href="#i-arrow"/></svg></a>
+            <a class="plain" href="#metre">Estimer une rénovation de chambres</a>
+          </div>
+        </div>
+
+        <div class="board" data-board>
+          <div class="board-bar">
+            <span><b>Coupe AA</b> · Hôtel type, 12 chambres</span>
+            <span>Éch. 1:200</span>
+            <span class="tag">Exemple</span>
+          </div>
+          <div class="board-in">
+            <div class="coupe-wrap">
+              <div class="coupe-box">
+                <svg class="coupe" data-coupe role="img" aria-label="Coupe verticale d'un hôtel : spa au sous-sol, lobby et restaurant au rez-de-chaussée, chambres du premier au troisième étage, terrasse sur le toit, et le noyau de circulation au centre. Choisir un espace l'habille de ses matières."></svg>
+                <div class="coupe-hud" data-hud aria-hidden="true"></div>
+              </div>
+              <p class="coupe-hint" aria-hidden="true">Survolez un espace, cliquez pour sa fiche.</p>
+            </div>
+            <aside class="fiche" data-fiche aria-live="polite">
+              <p class="eyebrow" data-f-lvl>R+1 à R+3</p>
+              <h2 data-f-name>Chambres</h2>
+              <p class="fiche-desc" data-f-desc></p>
+              <ul class="fiche-rows" data-f-rows></ul>
+              <a class="btn" data-f-cta href="espace/?e=chambres">Voir tout l'espace <svg><use href="#i-arrow"/></svg></a>
+              <p class="fine">Classements indicatifs, à confirmer avec le bureau de contrôle.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="metre">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Le métré express</p>
+          <h2>Vos chambres en quantités, <span class="lt">univers par univers.</span></h2>
+          <p>Quatre cotes suffisent pour une première estimation : le textile au mètre linéaire, les murs et les sols au mètre carré, le mobilier à l'unité.</p>
+        </div>
+      </div>
+      <div class="metre">
+        <form class="metre-in" data-metre>
+          <div class="rg">
+            <div class="rg-top"><label for="m-n">Nombre de chambres</label><output class="mono" for="m-n" data-out="n">24</output></div>
+            <input id="m-n" name="n" type="range" min="1" max="200" step="1" value="24">
+            <div class="rg-scale mono"><span>1</span><span>200</span></div>
+          </div>
+          <div class="rg">
+            <div class="rg-top"><label for="m-s">Surface moyenne par chambre</label><output class="mono" for="m-s" data-out="s">19</output></div>
+            <input id="m-s" name="s" type="range" min="12" max="40" step="1" value="19">
+            <div class="rg-scale mono"><span>12 m²</span><span>40 m²</span></div>
+          </div>
+          <div class="rg">
+            <div class="rg-top"><label for="m-h">Hauteur sous plafond</label><output class="mono" for="m-h" data-out="h">2,70</output></div>
+            <input id="m-h" name="h" type="range" min="2.4" max="3.2" step="0.05" value="2.7">
+            <div class="rg-scale mono"><span>2,40 m</span><span>3,20 m</span></div>
+          </div>
+          <div class="rg">
+            <div class="rg-top"><label for="m-w">Largeur de fenêtre</label><output class="mono" for="m-w" data-out="w">2,40</output></div>
+            <input id="m-w" name="w" type="range" min="1.2" max="4" step="0.05" value="2.4">
+            <div class="rg-scale mono"><span>1,20 m</span><span>4,00 m</span></div>
+          </div>
+          <figure class="metre-fig">
+            <svg class="metre-wall" data-metre-wall viewBox="0 0 320 168" role="img" aria-label="Mur de fenêtre de la chambre type, avec ses cotes"></svg>
+            <figcaption class="mono">Mur de fenêtre · chambre type</figcaption>
+          </figure>
+        </form>
+
+        <div class="metre-out">
+          <article class="mo" style="--u: var(--u-textile)">
+            <div class="mo-head"><span class="mo-u"><i></i>Textile</span><span class="status"><span class="live-dot"></span>En ligne<span data-st="textile"></span></span></div>
+            <p class="mo-v"><span data-v="textile">0</span><small>ml</small></p>
+            <table class="mo-t" data-t="textile"></table>
+            <p class="mo-note">Coupe à partir de 3 ml.</p>
+            <div class="pick" data-pick="textile"></div>
+            <a class="link-arrow" href="../textile/?cat=occultants&amp;es=chambres">Voir les occultants <svg><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="mo" style="--u: var(--u-mural)">
+            <div class="mo-head"><span class="mo-u"><i></i>Mural</span><span class="status"><span class="live-dot"></span>En ligne<span data-st="mural"></span></span></div>
+            <p class="mo-v"><span data-v="mural">0</span><small>m²</small></p>
+            <table class="mo-t" data-t="mural"></table>
+            <p class="mo-note">Surface de murs, ouvertures déduites.</p>
+            <div class="pick" data-pick="mural"></div>
+            <a class="link-arrow" href="../mural/?cat=vinyles&amp;es=chambres">Voir les vinyles <svg><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="mo" style="--u: var(--u-sol)">
+            <div class="mo-head"><span class="mo-u"><i></i>Sol</span><span class="status"><span class="live-dot"></span>En ligne<span data-st="sol"></span></span></div>
+            <p class="mo-v"><span data-v="sol">0</span><small>m²</small></p>
+            <table class="mo-t" data-t="sol"></table>
+            <p class="mo-note">Moquette en lés ou parquet, même surface.</p>
+            <div class="pick" data-pick="sol"></div>
+            <a class="link-arrow" href="../sol/?es=chambres">Voir les sols de chambre <svg><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="mo" style="--u: var(--u-mobilier)">
+            <div class="mo-head"><span class="mo-u"><i></i>Mobilier</span><span class="status"><span class="live-dot"></span>En ligne<span data-st="mobilier"></span></span></div>
+            <p class="mo-v"><span data-v="mobilier">0</span><small>u</small></p>
+            <table class="mo-t" data-t="mobilier"></table>
+            <p class="mo-note">Fabrication sur commande, recouvrable avec nos tissus.</p>
+            <div class="pick" data-pick="mobilier"></div>
+            <a class="link-arrow" href="../mobilier/?cat=chambre">Voir le mobilier de chambre <svg><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+      <div class="metre-foot">
+        <p class="fine">Estimation indicative, à confirmer par un métré sur plan.</p>
+        <div class="metre-act">
+          <a class="link-arrow" href="../projet/">Voir le projet <span class="hdr-count" data-count="dchr-projet" data-n="0">0</span></a>
+          <button class="btn" type="button" data-add>Ajouter les quantités au projet <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunk" id="espaces">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Les espaces</p>
+          <h2>Six espaces, <span class="lt">quatre univers chacun.</span></h2>
+          <p>Chaque espace a ses contraintes : trafic, humidité, sommeil, soleil. On y entre par l'usage, puis on choisit dans chaque univers, filtré sur l'espace.</p>
+        </div>
+      </div>
+      <div class="esp-grid" data-esp-grid></div>
+    </div>
+  </section>
+
+  <section class="section" id="compte">
+    <div class="wrap">
+      <div class="compte">
+        <div class="compte-copy">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Compte pro</p>
+              <h2>Un compte pour tout l'hôtel, <span class="lt">validé une seule fois.</span></h2>
+              <p>Votre compte professionnel ouvre les quatre univers. Vous préparez un projet espace par espace, et chaque usine expédie sa part en direct sur le chantier.</p>
+            </div>
+          </div>
+          <ul class="points">
+            <li><span class="k">01</span><div><b>Un seul compte</b><span>Validé une fois avec votre SIRET, il fonctionne sur /textile, /mural, /sol et /mobilier.</span></div></li>
+            <li><span class="k">02</span><div><b>Un projet par espace</b><span>Chambres, couloirs, lobby : chaque espace garde ses quantités, ses échantillons et ses documents.</span></div></li>
+            <li><span class="k">03</span><div><b>Expédié par l'usine</b><span>Chaque fabricant livre en direct, avec un suivi par univers.</span></div></li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn" href="../projet/">Préparer un projet <svg><use href="#i-arrow"/></svg></a>
+            <a class="plain" href="../recherche/">Rechercher dans les quatre univers</a>
+          </div>
+        </div>
+        <div class="live-card">
+          <div class="lc-head">
+            <span class="logo logo-sm"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+            <span class="status"><span class="live-dot"></span>4 univers en ligne</span>
+          </div>
+          <dl class="lc-stats">
+            <div><dt>Références</dt><dd data-lc="products">–</dd></div>
+            <div><dt>Coloris et finitions</dt><dd data-lc="colors">–</dd></div>
+            <div><dt>Pays de fabrication</dt><dd data-lc="countries">–</dd></div>
+            <div><dt>Espaces couverts</dt><dd>6</dd></div>
+          </dl>
+          <ul class="lc-uni">
+            <li style="--u: var(--u-textile)"><a href="../textile/"><span class="d"></span><b>Direct Textile</b><span class="mono" data-lc-u="textile"></span></a></li>
+            <li style="--u: var(--u-mural)"><a href="../mural/"><span class="d"></span><b>Direct Mural</b><span class="mono" data-lc-u="mural"></span></a></li>
+            <li style="--u: var(--u-sol)"><a href="../sol/"><span class="d"></span><b>Direct Sol</b><span class="mono" data-lc-u="sol"></span></a></li>
+            <li style="--u: var(--u-mobilier)"><a href="../mobilier/"><span class="d"></span><b>Direct Mobilier</b><span class="mono" data-lc-u="mobilier"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="logo"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+        <p class="foot-pitch">Centrale d'achat pour l'hôtellerie et la restauration, en direct des fabricants européens. Boutique réservée aux professionnels.</p>
+      </div>
+      <div>
+        <h4>Univers</h4>
+        <ul>
+          <li><a class="u-link" style="--u: var(--u-textile)" href="../textile/"><i></i>Direct Textile <small>/textile</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mural)" href="../mural/"><i></i>Direct Mural <small>/mural</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-sol)" href="../sol/"><i></i>Direct Sol <small>/sol</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mobilier)" href="../mobilier/"><i></i>Direct Mobilier <small>/mobilier</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Centrale</h4>
+        <ul>
+          <li><a href="#compte">Ouvrir un compte pro</a></li>
+          <li><a href="#coupe">L'hôtel en coupe</a></li>
+          <li><a href="#metre">Le métré express</a></li>
+          <li><a href="#espaces">Les espaces</a></li>
+          <li><a href="../projet/">Projet en cours</a></li>
+          <li><span class="mono">info@directchr.com</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Conditions</h4>
+        <ul>
+          <li>Coupe à partir de 3 ml</li>
+          <li>Livraison offerte dès 2 500 € HT</li>
+          <li>Expédié par l'usine</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Direct CHR</span>
+      <span>directchr.com · /textile · /mural · /sol · /mobilier</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comptoir · Direct CHR</title>
+<meta name="description" content="Les résultats du comptoir pro de Direct CHR : la ligne de besoin est lue, puis cherchée dans le stock des quatre univers, coloris par coloris.">
+<link rel="preload" href="../../assets/fonts/font-archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/font-geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/font-geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/shared.css">
+<link rel="stylesheet" href="../../assets/catalogue/core.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="recherche.css">
+<script src="../../assets/catalogue/core.js" defer></script>
+<script src="../parse.js" defer></script>
+<script src="../match.js" defer></script>
+<script src="recherche.js" defer></script>
+<script src="../../assets/propositions.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
+</svg>
+
+<div data-dchr-header></div>
+
+<main>
+  <section class="comptoir rq-top">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="crumbs rq-crumbs" aria-label="Fil d'Ariane"><a href="../">Comptoir</a><span aria-hidden="true">/</span><span>Résultats</span></nav>
+      <div class="rq-in">
+        <div class="rq-cmd">
+          <h1 class="rq-h">Votre besoin, <span class="lt">cherché dans les quatre univers.</span></h1>
+          <form class="cmd-form" data-cmd-form role="search" action="./">
+            <div class="cmd">
+              <span class="cmd-prompt" aria-hidden="true">›</span>
+              <label class="vh" for="cmd">Votre besoin</label>
+              <input id="cmd" aria-keyshortcuts="Meta+K Control+K" name="q" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="180 ml velours bleu M1 pour le 15/01" aria-describedby="cmd-help" data-cmd>
+              <button class="cmd-clear" type="button" data-cmd-clear aria-label="Effacer la saisie" hidden><svg class="ico"><use href="#i-x"/></svg></button>
+              <button class="btn" type="submit"><span class="t" data-run-label>Chercher</span><svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <p class="vh" id="cmd-help">Les éléments reconnus se mettent à jour pendant la saisie. Entrée relance la recherche.</p>
+            <div class="tokens" data-tokens aria-label="Éléments reconnus"></div>
+            <p class="cmd-hint" data-hint hidden></p>
+          </form>
+        </div>
+
+        <aside class="besoin bb-mini" aria-labelledby="bb-title" data-besoin>
+          <div class="besoin-head">
+            <div class="bh-l">
+              <p class="eyebrow">Bon de besoin <span class="mono" data-b-ref>BB-01</span></p>
+              <h2 id="bb-title" data-b-title>Nouveau besoin</h2>
+            </div>
+            <span class="tag" data-b-state>Vide</span>
+          </div>
+          <dl class="besoin-spec bb-grid">
+            <div class="row is-empty" data-f="univers"><dt>Univers</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="qty"><dt>Quantité</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="matiere"><dt>Matière</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="couleur"><dt>Couleur</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="norme"><dt>Norme feu</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="echeance"><dt>Échéance</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+          </dl>
+          <div class="meter" aria-hidden="true">
+            <span class="meter-bar" data-meter><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <b data-meter-n>0/6 reconnus</b>
+          </div>
+          <p class="bb-sum" data-bb-sum aria-live="polite"><span class="st-dot"></span><span>Chargement du stock…</span></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="rq-res" id="resultats" aria-label="Résultats">
+    <div class="wrap">
+      <div class="rq-bar">
+        <div class="rq-tabs" role="tablist" aria-label="Univers" data-tabs></div>
+        <div class="rq-tools">
+          <div class="seg" role="group" aria-label="Trier les résultats">
+            <button type="button" data-sort="pertinence" aria-pressed="true">Pertinence</button>
+            <button type="button" data-sort="stock" aria-pressed="false">Stock</button>
+            <button type="button" data-sort="delai" aria-pressed="false">Délai</button>
+          </div>
+          <div class="seg seg-ico" role="group" aria-label="Affichage">
+            <button type="button" data-view="liste" aria-pressed="true" aria-label="Liste"><svg class="ico"><use href="#i-list"/></svg><span>Liste</span></button>
+            <button type="button" data-view="grille" aria-pressed="false" aria-label="Grille"><svg class="ico"><use href="#i-grid"/></svg><span>Grille</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="rq-meta">
+        <p class="rq-count" data-count-line aria-live="polite"></p>
+        <p class="rq-stale" data-stale hidden><svg class="ico"><use href="#i-info"/></svg>La ligne a changé : Entrée pour actualiser les résultats.</p>
+      </div>
+      <ul class="rq-notes" data-notes hidden></ul>
+      <div class="rq-panel" id="rq-panel" role="tabpanel" tabindex="-1" data-results>
+        <p class="rq-loading">Chargement du stock…</p>
+      </div>
+      <div class="rq-empty" data-empty hidden></div>
+      <p class="rq-foot" data-foot hidden></p>
+    </div>
+  </section>
+</main>
+
+<div data-dchr-footer></div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

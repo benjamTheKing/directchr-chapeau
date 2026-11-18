@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direct CHR — Le comptoir</title>
+<meta name="description" content="Le comptoir pro de Direct CHR : décrivez votre besoin en une ligne, il est chiffré et cherché dans le stock des usines, pour le textile, le mural, le sol et le mobilier.">
+<link rel="preload" href="../assets/fonts/font-archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/font-geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/font-geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/shared.css">
+<link rel="stylesheet" href="../assets/catalogue/core.css">
+<link rel="stylesheet" href="style.css">
+<script src="../assets/catalogue/core.js" defer></script>
+<script src="parse.js" defer></script>
+<script src="match.js" defer></script>
+<script src="app.js" defer></script>
+<script src="../assets/propositions.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 0 1 3-3h12l-3-3M20 13v2a3 3 0 0 1-3 3H5l3 3"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="topbar-track">
+    <span>Comptoir pro · 4 univers</span><span class="dot-sep"></span>
+    <span>Direct fabricant, sans intermédiaire</span><span class="dot-sep"></span>
+    <span>Un compte pro pour le textile, le mural, le sol et le mobilier</span><span class="dot-sep"></span>
+    <span>Livraison offerte dès 2&#8239;500&nbsp;€&nbsp;HT</span><span class="dot-sep"></span>
+    <span>Boutique réservée aux professionnels</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-row">
+      <a class="logo" href="#comptoir" aria-label="Direct CHR, accueil">
+        <span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span>
+      </a>
+      <form class="search cmd-top" data-cmd-top role="search">
+        <svg class="search-ico"><use href="#i-search"/></svg>
+        <label class="vh" for="q-top">Décrire un besoin</label>
+        <input id="q-top" name="q" type="text" autocomplete="off" spellcheck="false" enterkeyhint="go" placeholder="Un besoin, une qualité, un devis…">
+        <button class="kbd-hint" type="button" data-cmdk aria-label="Aller au comptoir"><kbd data-mod>⌘</kbd><kbd>K</kbd></button>
+      </form>
+      <div class="hdr-actions">
+        <button class="icon-btn lang" type="button"><svg><use href="#i-globe"/></svg><span class="t">Français</span></button>
+        <a class="icon-btn" href="../projet/" aria-label="Projet en cours"><svg><use href="#i-bag"/></svg><span class="t">Projet</span><span class="hdr-count" data-count="dchr-projet" data-n="0">0</span></a>
+        <a class="icon-btn icon-user" href="#espace" aria-label="Mon espace pro"><svg><use href="#i-user"/></svg></a>
+        <a class="btn btn-sm" href="#espace">Espace pro</a>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Comptoir">
+      <div class="nav-scroll">
+        <a class="uni-tab" href="#comptoir" data-focus-cmd aria-keyshortcuts="Meta+K Control+K">Rechercher <kbd class="kb" aria-hidden="true"><span data-mod>⌘</span>K</kbd></a>
+        <a class="uni-tab" href="#espace" data-goto="projets" aria-keyshortcuts="P">Mes projets <kbd class="kb" aria-hidden="true">P</kbd></a>
+        <a class="uni-tab" href="#espace" data-goto="devis" aria-keyshortcuts="D">Devis <kbd class="kb" aria-hidden="true">D</kbd></a>
+        <a class="uni-tab" href="#espace" data-goto="expeditions" aria-keyshortcuts="E">Expéditions <kbd class="kb" aria-hidden="true">E</kbd></a>
+        <a class="uni-tab" href="#espace" data-goto="reassort" aria-keyshortcuts="R">Réassort <kbd class="kb" aria-hidden="true">R</kbd></a>
+        <span class="nav-sep"></span>
+        <a class="uni-tab" style="--u: var(--u-textile)" href="../textile/"><span class="d"></span>Textile</a>
+        <a class="uni-tab" style="--u: var(--u-mural)" href="../mural/"><span class="d"></span>Mural</a>
+        <a class="uni-tab" style="--u: var(--u-sol)" href="../sol/"><span class="d"></span>Sol</a>
+        <a class="uni-tab" style="--u: var(--u-mobilier)" href="../mobilier/"><span class="d"></span>Mobilier</a>
+      </div>
+      <span class="nav-live"><span class="live-dot"></span>4 univers en ligne</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="comptoir" id="comptoir">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="comptoir-in">
+        <div class="comptoir-copy">
+          <p class="eyebrow">Comptoir pro · 4 univers</p>
+          <h1>Votre besoin, <span class="lt">chiffré en une ligne.</span></h1>
+          <p class="lead">Écrivez-le comme à un fournisseur : quantité, matière, couleur, norme feu, échéance. Le comptoir lit la ligne, reconnaît l'univers et l'unité de vente, puis cherche le coloris qui sert toute la quantité dans le stock des usines.</p>
+          <form class="cmd-form" data-cmd-form role="search" action="recherche/">
+            <div class="cmd">
+              <span class="cmd-prompt" aria-hidden="true">›</span>
+              <label class="vh" for="cmd">Votre besoin</label>
+              <input id="cmd" aria-keyshortcuts="Meta+K Control+K" name="q" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="420 m² moquette grise Cfl-s1 pour le 20/02" aria-describedby="cmd-help" data-cmd>
+              <button class="cmd-clear" type="button" data-cmd-clear aria-label="Effacer la saisie" hidden><svg class="ico"><use href="#i-x"/></svg></button>
+              <span class="cmd-kbd" aria-hidden="true"><kbd data-mod>⌘</kbd><kbd>K</kbd></span>
+              <button class="btn" type="submit"><span class="t">Chercher</span><svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <p class="vh" id="cmd-help">Les éléments reconnus, le bon de besoin et les premiers produits se mettent à jour pendant la saisie.</p>
+            <div class="tokens" data-tokens aria-label="Éléments reconnus"></div>
+            <p class="cmd-hint" data-hint hidden></p>
+          </form>
+          <div class="examples" role="group" aria-label="Exemples de besoins">
+            <span class="eyebrow">Exemples</span>
+            <button class="ex" type="button" data-ex aria-pressed="false">180 ml velours bleu M1</button>
+            <button class="ex" type="button" data-ex aria-pressed="false">650 m² vinyle B-s2,d0</button>
+            <button class="ex" type="button" data-ex aria-pressed="false">420 m² moquette grise Cfl-s1</button>
+            <button class="ex" type="button" data-ex aria-pressed="false">36 fauteuils EN 1021</button>
+          </div>
+        </div>
+
+        <aside class="besoin" aria-labelledby="bb-title" data-besoin>
+          <div class="besoin-head">
+            <div class="bh-l">
+              <p class="eyebrow">Bon de besoin <span class="mono" data-b-ref>BB-01</span></p>
+              <h2 id="bb-title" data-b-title>Nouveau besoin</h2>
+            </div>
+            <span class="tag" data-b-state>Vide</span>
+          </div>
+          <div class="besoin-visual" data-b-visual>
+            <div class="bv-vis" data-b-vis></div>
+            <span class="bv-color" data-b-vcolor hidden><i></i><span></span></span>
+            <span class="bv-label" data-b-vlabel>En attente de saisie</span>
+          </div>
+          <dl class="besoin-spec">
+            <div class="row is-empty" data-f="univers"><dt>Univers</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="unite"><dt>Unité</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="qty"><dt>Quantité</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="matiere"><dt>Matière</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="couleur"><dt>Couleur</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="norme"><dt>Norme feu</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+            <div class="row is-empty" data-f="echeance"><dt>Échéance</dt><dd><span class="v">—</span><span class="s"></span></dd></div>
+          </dl>
+          <div class="meter" aria-hidden="true">
+            <span class="meter-bar" data-meter><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <b data-meter-n>0/6 reconnus</b>
+          </div>
+          <div class="besoin-status" data-b-status>
+            <p class="st-main" aria-live="polite"><span class="st-dot" data-st-dot></span><span data-st-text>Tapez un besoin ou choisissez un exemple.</span></p>
+            <p class="st-sub" data-st-sub></p>
+            <p class="st-warn" data-st-warn hidden></p>
+            <ol class="bb-top" data-b-top aria-label="Premiers produits trouvés" hidden></ol>
+            <div class="st-actions" data-st-actions></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="reads-wrap">
+        <p class="eyebrow">Ce que le comptoir sait lire</p>
+        <dl class="reads">
+          <div><dt>Quantités</dt><dd>180 ml · 650 m² · 36 fauteuils · 12 u</dd></div>
+          <div><dt>Normes feu</dt><dd>M1 · B1 · Cfl-s1 · Bfl-s1 · B-s2,d0 · EN 1021 · EN 13773 · R10</dd></div>
+          <div><dt>Échéances</dt><dd>pour le 15/01 · sous 6 semaines</dd></div>
+          <div><dt>Univers</dt><dd>déduit de la matière, de l'unité ou de la norme</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stock" id="stock">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Le stock en direct</p>
+          <h2>Ce qui est en stock, <span class="lt">univers par univers.</span></h2>
+          <p>Le stock de chaque coloris, compté de la même façon pour le textile, le mural, le sol et le mobilier. Chaque ligne ouvre sa catégorie dans le catalogue.</p>
+        </div>
+        <span class="status"><span class="live-dot"></span><span data-stock-status>Lecture du stock…</span></span>
+      </div>
+
+      <div class="kpis kpis-u" data-kpis></div>
+
+      <div class="fam-bar">
+        <h3><i></i><span data-cat-title>Catégories</span></h3>
+        <div class="seg seg-dark" role="group" aria-label="Trier les catégories">
+          <button type="button" data-sort="cat" aria-pressed="true">Catalogue</button>
+          <button type="button" data-sort="stock" aria-pressed="false">Stock</button>
+          <button type="button" data-sort="n" aria-pressed="false">A → Z</button>
+        </div>
+      </div>
+      <div class="st-grid" data-st-grid></div>
+      <div class="rules">
+        <span>Textile coupé dès 3&nbsp;ml</span>
+        <span>Mural et sol au m²</span>
+        <span>Mobilier à l'unité</span>
+        <span>Livraison offerte dès 2&#8239;500&nbsp;€&nbsp;HT</span>
+        <span>Expédié par l'usine</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunk espace" id="espace">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Votre espace pro</p>
+          <h2>Vos achats, <span class="lt">suivis usine par usine.</span></h2>
+          <p>Un seul compte pour les quatre univers. Les besoins sont rangés par projet, les devis se valident en ligne et chaque usine expédie sa part en direct, avec un suivi par expédition.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Espace pro">
+          <button type="button" role="tab" id="t-projets" aria-controls="p-projets" aria-selected="true" data-tab="projets" aria-keyshortcuts="P">Projets <kbd aria-hidden="true">P</kbd></button>
+          <button type="button" role="tab" id="t-devis" aria-controls="p-devis" aria-selected="false" tabindex="-1" data-tab="devis" aria-keyshortcuts="D">Devis <kbd aria-hidden="true">D</kbd></button>
+          <button type="button" role="tab" id="t-expeditions" aria-controls="p-expeditions" aria-selected="false" tabindex="-1" data-tab="expeditions" aria-keyshortcuts="E">Expéditions <kbd aria-hidden="true">E</kbd></button>
+          <button type="button" role="tab" id="t-reassort" aria-controls="p-reassort" aria-selected="false" tabindex="-1" data-tab="reassort" aria-keyshortcuts="R">Réassort <kbd aria-hidden="true">R</kbd></button>
+        </div>
+      </div>
+
+      <div class="panel is-in" role="tabpanel" id="p-projets" aria-labelledby="t-projets" tabindex="0">
+        <div class="pj-grid">
+          <article class="pj pj-live" data-pj-live>
+            <header class="pj-head">
+              <div><h3>Projet en cours</h3><span class="mono" data-pj-sub>Ce que vous ajoutez depuis le comptoir et les catalogues</span></div>
+              <span class="tag is-live">En direct</span>
+            </header>
+            <ul class="pj-lines" data-pj-lines></ul>
+            <footer class="pj-foot"><span class="mono" data-pj-total>0 référence · 4 univers · 1 compte</span><a class="btn btn-sm" href="../projet/">Ouvrir le projet</a></footer>
+          </article>
+          <article class="pj">
+            <header class="pj-head">
+              <div><h3>Rénovation 2ᵉ étage · 18 chambres</h3><span class="mono">P-0142 · ouvert le 02/09/2026</span></div>
+              <div class="pj-tags"><span class="tag">En cours</span><span class="proto-note">Exemple</span></div>
+            </header>
+            <ul class="pj-lines">
+              <li style="--u: var(--u-textile)"><span class="pl-u"><i></i>Textile</span><span class="pl-q">126 / 180 <small>ml</small></span><span class="pl-bar"><b style="--p: 0.7"></b></span><span class="pl-s">70&#8239;% commandé · 2 expéditions usine</span></li>
+              <li style="--u: var(--u-mural)"><span class="pl-u"><i></i>Mural</span><span class="pl-q">0 / 612 <small>m²</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">devis D-2611-0431 à valider</span></li>
+              <li style="--u: var(--u-sol)"><span class="pl-u"><i></i>Sol</span><span class="pl-q">348 / 348 <small>m²</small></span><span class="pl-bar"><b style="--p: 1"></b></span><span class="pl-s">commandé en totalité · en préparation</span></li>
+              <li style="--u: var(--u-mobilier)"><span class="pl-u"><i></i>Mobilier</span><span class="pl-q">6 / 18 <small>u</small></span><span class="pl-bar"><b style="--p: 0.33"></b></span><span class="pl-s">6 chevets en stock · 12 en fabrication</span></li>
+            </ul>
+            <footer class="pj-foot"><span class="mono">4 univers · 1 compte</span><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le projet Rénovation 2ᵉ étage s'ouvrira ici.">Ouvrir le projet</button></footer>
+          </article>
+          <article class="pj">
+            <header class="pj-head">
+              <div><h3>Restaurant · réouverture printemps</h3><span class="mono">P-0157 · ouvert le 14/10/2026</span></div>
+              <div class="pj-tags"><span class="tag">En cours</span><span class="proto-note">Exemple</span></div>
+            </header>
+            <ul class="pj-lines">
+              <li style="--u: var(--u-textile)"><span class="pl-u"><i></i>Textile</span><span class="pl-q">64 / 64 <small>ml</small></span><span class="pl-bar"><b style="--p: 1"></b></span><span class="pl-s">commandé en totalité · en fabrication</span></li>
+              <li style="--u: var(--u-mural)"><span class="pl-u"><i></i>Mural</span><span class="pl-q">140 / 140 <small>m²</small></span><span class="pl-bar"><b style="--p: 1"></b></span><span class="pl-s">livré sur site le 03/11</span></li>
+              <li style="--u: var(--u-sol)"><span class="pl-u"><i></i>Sol</span><span class="pl-q">0 / 210 <small>m²</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">devis D-2611-0402 accepté · commande à passer</span></li>
+              <li style="--u: var(--u-mobilier)"><span class="pl-u"><i></i>Mobilier</span><span class="pl-q">72 / 72 <small>u</small></span><span class="pl-bar"><b style="--p: 1"></b></span><span class="pl-s">en fabrication · 6 à 8 semaines</span></li>
+            </ul>
+            <footer class="pj-foot"><span class="mono">4 univers · 1 compte</span><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le projet Restaurant s'ouvrira ici.">Ouvrir le projet</button></footer>
+          </article>
+          <article class="pj">
+            <header class="pj-head">
+              <div><h3>Lobby et salons</h3><span class="mono">P-0163 · ouvert le 05/11/2026</span></div>
+              <div class="pj-tags"><span class="tag tag-wait">Devis à valider</span><span class="proto-note">Exemple</span></div>
+            </header>
+            <ul class="pj-lines">
+              <li style="--u: var(--u-textile)"><span class="pl-u"><i></i>Textile</span><span class="pl-q">0 / 96 <small>ml</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">devis D-2611-0418 à valider</span></li>
+              <li style="--u: var(--u-mural)"><span class="pl-u"><i></i>Mural</span><span class="pl-q">0 / 85 <small>m²</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">à chiffrer</span></li>
+              <li style="--u: var(--u-sol)"><span class="pl-u"><i></i>Sol</span><span class="pl-q">0 / 120 <small>m²</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">à chiffrer</span></li>
+              <li style="--u: var(--u-mobilier)"><span class="pl-u"><i></i>Mobilier</span><span class="pl-q">0 / 14 <small>u</small></span><span class="pl-bar"><b style="--p: 0"></b></span><span class="pl-s">devis D-2611-0418 à valider</span></li>
+            </ul>
+            <footer class="pj-foot"><span class="mono">4 univers · 1 compte</span><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le projet Lobby et salons s'ouvrira ici.">Ouvrir le projet</button></footer>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-devis" aria-labelledby="t-devis" tabindex="0" hidden>
+        <ul class="dv">
+          <li class="dv-h" aria-hidden="true"><span class="dv-num">Devis</span><span class="dv-proj">Projet et contenu</span><span class="dv-date">Date</span><span class="dv-amt">Montant</span><span class="dv-st">Statut</span><span class="dv-act"></span></li>
+          <li>
+            <span class="dv-num">D-2611-0431</span>
+            <span class="dv-proj"><b>Rénovation 2ᵉ étage</b><span style="--u: var(--u-mural)"><i></i>Mural · Revêtement vinyle Baronnies, 612&nbsp;m²</span></span>
+            <span class="dv-date">11/11/2026</span>
+            <span class="dv-amt">11&#8239;628,00&nbsp;€&nbsp;HT<small>livraison offerte</small></span>
+            <span class="dv-st"><span class="chip chip-wait">À valider</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2611-0431 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+          <li>
+            <span class="dv-num">D-2611-0418</span>
+            <span class="dv-proj"><b>Lobby et salons</b><span style="--u: var(--u-mobilier)"><i></i>Mobilier et textile · 14 fauteuils, velours Annecy</span></span>
+            <span class="dv-date">10/11/2026</span>
+            <span class="dv-amt">9&#8239;860,00&nbsp;€&nbsp;HT<small>livraison offerte</small></span>
+            <span class="dv-st"><span class="chip chip-wait">À valider</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2611-0418 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+          <li>
+            <span class="dv-num">D-2611-0402</span>
+            <span class="dv-proj"><b>Restaurant · réouverture printemps</b><span style="--u: var(--u-sol)"><i></i>Sol · Carrelage grès cérame, 210&nbsp;m²</span></span>
+            <span class="dv-date">04/11/2026</span>
+            <span class="dv-amt">7&#8239;980,00&nbsp;€&nbsp;HT<small>livraison offerte</small></span>
+            <span class="dv-st"><span class="chip chip-ok">Accepté</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2611-0402 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+          <li>
+            <span class="dv-num">D-2610-0377</span>
+            <span class="dv-proj"><b>Rénovation 2ᵉ étage</b><span style="--u: var(--u-textile)"><i></i>Textile · Occultant Cadillac BO, velours Annecy</span></span>
+            <span class="dv-date">21/10/2026</span>
+            <span class="dv-amt">6&#8239;420,00&nbsp;€&nbsp;HT<small>livraison offerte</small></span>
+            <span class="dv-st"><span class="chip chip-ok">Accepté</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2610-0377 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+          <li>
+            <span class="dv-num">D-2610-0351</span>
+            <span class="dv-proj"><b>Rénovation 2ᵉ étage</b><span style="--u: var(--u-sol)"><i></i>Sol · Moquette en lés Orne, 348&nbsp;m²</span></span>
+            <span class="dv-date">15/10/2026</span>
+            <span class="dv-amt">9&#8239;396,00&nbsp;€&nbsp;HT<small>livraison offerte</small></span>
+            <span class="dv-st"><span class="chip chip-ok">Accepté</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2610-0351 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+          <li>
+            <span class="dv-num">D-2609-0298</span>
+            <span class="dv-proj"><b>Restaurant · réouverture printemps</b><span style="--u: var(--u-mobilier)"><i></i>Mobilier · 48 chaises bistrot</span></span>
+            <span class="dv-date">28/09/2026</span>
+            <span class="dv-amt">1&#8239;940,00&nbsp;€&nbsp;HT</span>
+            <span class="dv-st"><span class="chip chip-off">Expiré</span></span>
+            <span class="dv-act"><button class="btn btn-sm btn-ghost" type="button" data-proto="Prototype : le PDF du devis D-2609-0298 sera téléchargé ici."><svg><use href="#i-file"/></svg>PDF</button></span>
+          </li>
+        </ul>
+        <p class="fine panel-note"><span class="proto-note">Exemple</span> Montants indicatifs. Livraison offerte dès 2&#8239;500&nbsp;€&nbsp;HT de commande.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-expeditions" aria-labelledby="t-expeditions" tabindex="0" hidden>
+        <div class="exp-list">
+          <article class="exp">
+            <div class="exp-head">
+              <span class="th" data-th="textile/cadillac-bo" style="--c: url(../assets/img/occultant.jpg)"></span>
+              <div class="exp-id"><b>Occultant Cadillac BO · 126&nbsp;ml</b><span class="mono">EXP-26-0871 · Rénovation 2ᵉ étage · Textile</span></div>
+              <span class="chip chip-sent"><svg class="ico"><use href="#i-truck"/></svg>En route</span>
+            </div>
+            <ol class="steps">
+              <li class="is-done"><span class="sd"></span><b>Commandé</b><span class="mono">03/11</span></li>
+              <li class="is-done"><span class="sd"></span><b>En fabrication</b><span class="mono">05/11</span></li>
+              <li class="is-done is-now"><span class="sd"></span><b>Expédié</b><span class="mono">10/11 · par l'usine</span></li>
+              <li><span class="sd"></span><b>Livré sur site</b><span class="mono">prévu le 14/11</span></li>
+            </ol>
+          </article>
+          <article class="exp">
+            <div class="exp-head">
+              <span class="th" data-th="sol/orne-moquettes"></span>
+              <div class="exp-id"><b>Moquette Orne · 348&nbsp;m²</b><span class="mono">EXP-26-0874 · Rénovation 2ᵉ étage · Sol</span></div>
+              <span class="chip chip-wait"><svg class="ico"><use href="#i-cog"/></svg>En préparation</span>
+            </div>
+            <ol class="steps">
+              <li class="is-done"><span class="sd"></span><b>Commandé</b><span class="mono">06/11</span></li>
+              <li class="is-done is-now"><span class="sd"></span><b>Coupe des lés</b><span class="mono">depuis le 07/11</span></li>
+              <li><span class="sd"></span><b>Expédié</b><span class="mono">prévu le 17/11 · par l'usine</span></li>
+              <li><span class="sd"></span><b>Livré sur site</b><span class="mono">prévu le 20/11</span></li>
+            </ol>
+          </article>
+          <article class="exp">
+            <div class="exp-head">
+              <span class="th" data-th="mural/baronnies-vinyles"></span>
+              <div class="exp-id"><b>Vinyle Baronnies · 140&nbsp;m²</b><span class="mono">EXP-26-0812 · Restaurant · Mural</span></div>
+              <span class="chip chip-ok"><svg class="ico"><use href="#i-check"/></svg>Livré</span>
+            </div>
+            <ol class="steps">
+              <li class="is-done"><span class="sd"></span><b>Commandé</b><span class="mono">22/10</span></li>
+              <li class="is-done"><span class="sd"></span><b>Préparé</b><span class="mono">24/10</span></li>
+              <li class="is-done"><span class="sd"></span><b>Expédié</b><span class="mono">29/10 · par l'usine</span></li>
+              <li class="is-done is-end"><span class="sd"></span><b>Livré sur site</b><span class="mono">03/11</span></li>
+            </ol>
+          </article>
+        </div>
+        <p class="fine panel-note"><span class="proto-note">Exemple</span> Chaque usine expédie sa part en direct sur le chantier : une commande multi-univers donne une expédition par usine.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-reassort" aria-labelledby="t-reassort" tabindex="0" hidden>
+        <div class="ra">
+          <ul class="ra-lines" data-ra-lines>
+            <li class="ra-loading"><span class="fine">Lecture du stock…</span></li>
+          </ul>
+          <div class="ra-foot">
+            <div class="ra-sum"><span class="mono" data-ra-total>—</span><span>sur <span data-ra-count>0</span> références · même coloris que la commande d'origine · stock du catalogue</span></div>
+            <button class="btn btn-sm" type="button" data-reorder-all><svg><use href="#i-repeat"/></svg>Tout recommander</button>
+          </div>
+        </div>
+        <p class="fine panel-note"><span class="proto-note">Exemple</span> Dates et quantités des commandes d'origine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="keys" id="raccourcis">
+    <div class="wrap keys-in">
+      <div class="keys-copy">
+        <p class="eyebrow">Pensé pour les acheteurs</p>
+        <h2>Tout au clavier, <span class="lt">sans détour.</span></h2>
+        <p class="fine">Les lettres fonctionnent partout sur la page, sauf pendant une saisie.</p>
+      </div>
+      <ul class="keys-list">
+        <li><button class="key" type="button" data-key="k"><span class="caps"><kbd data-mod>⌘</kbd><kbd>K</kbd></span><span class="t">Rechercher</span></button></li>
+        <li><button class="key" type="button" data-key="r"><span class="caps"><kbd>R</kbd></span><span class="t">Réassort</span></button></li>
+        <li><button class="key" type="button" data-key="p"><span class="caps"><kbd>P</kbd></span><span class="t">Projets</span></button></li>
+        <li><button class="key" type="button" data-key="d"><span class="caps"><kbd>D</kbd></span><span class="t">Devis</span></button></li>
+        <li><button class="key" type="button" data-key="e"><span class="caps"><kbd>E</kbd></span><span class="t">Expéditions</span></button></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="logo"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+        <p class="foot-pitch">Centrale d'achat pour l'hôtellerie et la restauration, en direct des fabricants européens. Boutique réservée aux professionnels.</p>
+      </div>
+      <div>
+        <h4>Univers</h4>
+        <ul>
+          <li><a class="u-link" style="--u: var(--u-textile)" href="../textile/"><i></i>Direct Textile <small>/textile</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mural)" href="../mural/"><i></i>Direct Mural <small>/mural</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-sol)" href="../sol/"><i></i>Direct Sol <small>/sol</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mobilier)" href="../mobilier/"><i></i>Direct Mobilier <small>/mobilier</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Comptoir</h4>
+        <ul>
+          <li><a href="#comptoir">Décrire un besoin</a></li>
+          <li><a href="recherche/">Résultats du comptoir</a></li>
+          <li><a href="../projet/">Projet en cours</a></li>
+          <li><a href="#stock">Le stock en direct</a></li>
+          <li><a href="#espace">Espace pro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Conditions</h4>
+        <ul>
+          <li>Textile coupé dès 3&nbsp;ml</li>
+          <li>Livraison offerte dès 2&#8239;500&nbsp;€&nbsp;HT</li>
+          <li>Expédié par l'usine</li>
+          <li><span class="mono">info@directchr.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Direct CHR · prototype local</span>
+      <span>directchr.com · /textile · /mural · /sol · /mobilier</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

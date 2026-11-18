@@ -1,0 +1,41 @@
+.vis { position: relative; overflow: hidden; background: var(--bg-sunk); }
+.vis > img, .vis > svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.vis.is-mob { background: linear-gradient(180deg, #f6f5f2 0%, #ecebe7 100%); }
+.vis.is-mob::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(140, 122, 107, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(140, 122, 107, 0.08) 1px, transparent 1px); background-size: 14px 14px; }
+.vis.is-mob > svg { object-fit: contain; }
+
+.u-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--u, var(--ink-3)); flex: none; }
+.u-textile { --u: var(--u-textile); }
+.u-mural { --u: var(--u-mural); }
+.u-sol { --u: var(--u-sol); }
+.u-mobilier { --u: var(--u-mobilier); }
+
+.pc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 18px 14px; }
+.pc { position: relative; display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 12px; transition: transform 300ms var(--ease-out); }
+.pc .vis { aspect-ratio: 1; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05); }
+.pc .vis > img, .pc .vis > svg { transition: transform 700ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .pc:hover .vis > img, .pc:hover .vis > svg { transform: scale(1.04); } }
+.pc-tag { position: absolute; left: 8px; top: 8px; z-index: 1; display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.92); font-family: var(--f-mono); font-size: 10px; color: var(--ink-2); }
+.pc-sw { position: absolute; left: 8px; bottom: 8px; right: 8px; z-index: 1; display: flex; gap: 3px; flex-wrap: wrap; }
+.pc-sw i { width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9); }
+.pc-sw em { font-style: normal; font-family: var(--f-mono); font-size: 10px; color: var(--ink-2); background: rgba(255, 255, 255, 0.9); border-radius: 4px; padding: 0 4px; line-height: 12px; }
+.pc-b { display: grid; gap: 3px; padding: 10px 2px 0; min-width: 0; }
+.pc-u { display: flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 10.5px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pc-t { font-family: var(--f-display); font-stretch: 108%; font-weight: 600; font-size: 16px; letter-spacing: -0.01em; line-height: 1.15; }
+.pc-d { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pc-m { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 4px; font-family: var(--f-mono); font-size: 10.5px; color: var(--ink-2); }
+.pc-m .ok { color: var(--live); }
+
+.feu { display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 7px; border-radius: 999px; background: var(--bg-sunk); font-family: var(--f-mono); font-size: 10.5px; color: var(--ink); white-space: nowrap; }
+.feu::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #c2592f; }
+.demo-note { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px; border-radius: 999px; border: 1px dashed var(--line-2); font-family: var(--f-mono); font-size: 10.5px; color: var(--ink-3); white-space: nowrap; }
+
+.hdr-count { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--taupe); color: #fff; font-family: var(--f-mono); font-size: 10.5px; line-height: 18px; text-align: center; }
+.hdr-count[data-n="0"] { background: var(--bg-sunk); color: var(--ink-3); }
+.uni-tab.is-current { color: var(--ink); }
+.uni-tab.is-current::after { transform: scaleX(1); }
+.uni-tab .d.ring { background: transparent; box-shadow: inset 0 0 0 1.5px var(--u); }
+
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); }
+.crumbs a { color: var(--ink-2); }
+@media (hover: hover) and (pointer: fine) { .crumbs a:hover { color: var(--ink); } }

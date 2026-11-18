@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direct CHR — La matériauthèque</title>
+<meta name="description" content="Centrale d'achat CHR, direct fabricant : toutes les matières d'un hôtel rangées par couleur, du textile au sol, aux murs et au mobilier, avec une boîte d'échantillons commune.">
+<link rel="preload" href="../assets/fonts/font-archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/font-geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/shared.css">
+<link rel="stylesheet" href="../assets/catalogue/core.css">
+<link rel="stylesheet" href="boite.css">
+<link rel="stylesheet" href="style.css">
+<script src="../assets/catalogue/core.js" defer></script>
+<script src="boite.js" defer></script>
+<script src="app.js" defer></script>
+<script src="../assets/propositions.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 8 12 3.8 20.5 8v8L12 20.2 3.5 16z"/><path d="M3.5 8 12 12.2 20.5 8M12 12.2v8"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="topbar-track">
+    <span>Centrale d'achat CHR</span><span class="dot-sep"></span>
+    <span>Direct fabricant, sans intermédiaire</span><span class="dot-sep"></span>
+    <span>Un compte pro pour les quatre univers</span><span class="dot-sep"></span>
+    <span>Boutique réservée aux professionnels</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-row">
+      <a class="logo" href="./" aria-label="Direct CHR, accueil">
+        <span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span>
+      </a>
+      <form class="search" action="../recherche/" role="search">
+        <svg class="search-ico"><use href="#i-search"/></svg>
+        <label class="vh" for="q-top">Rechercher dans les quatre catalogues</label>
+        <input id="q-top" name="q" type="search" autocomplete="off" data-rotate placeholder="velours bleu non feu M1…">
+        <span class="scope">
+          <label class="vh" for="scope-top">Univers</label>
+          <select id="scope-top" name="u" data-scope-select>
+            <option value="">Tout</option>
+            <option value="textile">Textile</option>
+            <option value="mural">Mural</option>
+            <option value="sol">Sol</option>
+            <option value="mobilier">Mobilier</option>
+          </select>
+          <svg><use href="#i-chev"/></svg>
+        </span>
+      </form>
+      <div class="hdr-actions">
+        <button class="icon-btn lang" type="button"><svg><use href="#i-globe"/></svg><span class="t">Français</span></button>
+        <a class="icon-btn" href="../projet/" aria-label="Projet en cours"><svg><use href="#i-bag"/></svg><span class="t">Projet</span><span class="hdr-count" data-count="dchr-projet" data-n="0">0</span></a>
+        <a class="btn btn-sm" href="#comment">Inscription</a>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Matériauthèque">
+      <div class="nav-scroll">
+        <a class="uni-tab" href="#nuancier" data-spy="mur">Nuancier</a>
+        <a class="uni-tab" href="#matieres" data-spy="matieres">Matières</a>
+        <a class="uni-tab" href="#boite" data-box-open>Boîte d'échantillons <span class="hdr-count" data-count="dchr-boite" data-n="0">0</span></a>
+        <span class="nav-sep"></span>
+        <a class="uni-tab" style="--u: var(--u-textile)" href="../textile/"><span class="d"></span>Textile <span class="p">/textile</span></a>
+        <a class="uni-tab" style="--u: var(--u-mural)" href="../mural/"><span class="d"></span>Mural <span class="p">/mural</span></a>
+        <a class="uni-tab" style="--u: var(--u-sol)" href="../sol/"><span class="d"></span>Sol <span class="p">/sol</span></a>
+        <a class="uni-tab" style="--u: var(--u-mobilier)" href="../mobilier/"><span class="d"></span>Mobilier <span class="p">/mobilier</span></a>
+      </div>
+      <span class="nav-live"><span class="live-dot"></span>4 univers en ligne</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="mur" id="mur" aria-labelledby="mur-title">
+    <div class="mur-bg"></div>
+    <div class="wrap">
+      <div class="mur-head">
+        <div class="mur-copy">
+          <p class="eyebrow">Matériauthèque · 4 univers</p>
+          <h1 id="mur-title">Toutes les matières d'un hôtel, <span class="lt">rangées par couleur.</span></h1>
+          <p class="mur-lead">Tissus, revêtements muraux, sols et finitions de mobilier sur un seul mur d'échantillons. Choisissez une teinte, comparez les matières et composez votre boîte.</p>
+        </div>
+        <div class="facts">
+          <dl>
+            <dt style="--u: var(--u-textile)"><a href="../textile/"><i></i>Textile</a></dt><dd data-fact="textile">240 références · 3&#8239;032 coloris</dd>
+            <dt style="--u: var(--u-mural)"><a href="../mural/"><i></i>Mural</a></dt><dd data-fact="mural">120 références · 577 coloris</dd>
+            <dt style="--u: var(--u-sol)"><a href="../sol/"><i></i>Sol</a></dt><dd data-fact="sol">140 références · 680 coloris</dd>
+            <dt style="--u: var(--u-mobilier)"><a href="../mobilier/"><i></i>Mobilier</a></dt><dd data-fact="mobilier">120 références · 514 coloris</dd>
+          </dl>
+          <p class="facts-stock"><span class="live-dot"></span><span data-fact-all>620 références · 4&#8239;803 coloris · 4 univers</span></p>
+        </div>
+      </div>
+
+      <div class="nuancier" id="nuancier">
+        <div class="chips" role="group" aria-label="Nuancier : filtrer le mur par couleur" data-chips></div>
+        <div class="nu-bar">
+          <div class="unis" role="group" aria-label="Univers affichés sur le mur">
+            <button class="u-tog" type="button" data-u="textile" style="--u: var(--u-textile)" aria-pressed="true"><i></i>Textile</button>
+            <button class="u-tog" type="button" data-u="mural" style="--u: var(--u-mural)" aria-pressed="true"><i></i>Mural</button>
+            <button class="u-tog" type="button" data-u="sol" style="--u: var(--u-sol)" aria-pressed="true"><i></i>Sol</button>
+            <button class="u-tog" type="button" data-u="mobilier" style="--u: var(--u-mobilier)" aria-pressed="true"><i></i>Mobilier</button>
+          </div>
+          <p class="sum" data-summary aria-live="polite"></p>
+          <div class="seg" role="group" aria-label="Ranger le mur">
+            <button type="button" data-sort="couleur" aria-pressed="true">Par couleur</button>
+            <button type="button" data-sort="univers" aria-pressed="false">Par univers</button>
+          </div>
+        </div>
+        <div class="nu-res" data-res></div>
+      </div>
+
+      <div class="wall" data-wall role="group" aria-label="Mur d'échantillons"></div>
+
+      <div class="wall-foot">
+        <div class="wall-grad"><span data-sort-status>Rangement par couleur…</span><span class="grad" data-grad></span></div>
+        <p class="wall-hint">Choisissez un échantillon pour le poser dans la boîte, huit au plus. La flèche <svg class="hint-ico" aria-hidden="true"><use href="#i-out"/></svg> ouvre sa fiche produit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="matieres">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Matières</p>
+          <h2>Une matière, <span class="lt">quatre univers.</span></h2>
+          <p>Le bois, la laine, le velours, la pierre, le lin et les fibres techniques se retrouvent au sol, au mur, sur le mobilier et dans les tissus. On les compare côte à côte, et chaque case ouvre la fiche du produit.</p>
+        </div>
+        <a class="link-arrow" href="matiere/">Les neuf matières <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="mx" data-mx>
+        <div class="mx-head" aria-hidden="true">
+          <span>Matière</span>
+          <span style="--u: var(--u-textile)"><i></i>Textile</span>
+          <span style="--u: var(--u-mural)"><i></i>Mural</span>
+          <span style="--u: var(--u-sol)"><i></i>Sol</span>
+          <span style="--u: var(--u-mobilier)"><i></i>Mobilier</span>
+        </div>
+      </div>
+      <p class="mx-legend"><span><span class="live-dot"></span>échantillons disponibles dans les quatre univers</span><a href="matiere/">Le cuir, le métal, les tissages et les autres matières <svg><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="section section-sunk" id="comment">
+    <div class="wrap">
+      <div class="how">
+        <div class="how-copy">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Comment ça marche</p>
+              <h2>D'abord la boîte, <span class="lt">ensuite la commande.</span></h2>
+              <p>La matériauthèque sert à choisir avant d'acheter. Les échantillons des quatre univers partent ensemble, et la commande se fait ensuite avec le même compte professionnel.</p>
+            </div>
+          </div>
+          <ol class="steps">
+            <li><span class="k">01</span><div><b>Choisir jusqu'à 8 échantillons dans les quatre univers</b><span>Sur le mur, par couleur ou par matière : un velours, un enduit, un parquet et une laque peuvent partir dans la même boîte.</span></div></li>
+            <li><span class="k">02</span><div><b>Les recevoir et les poser sur site</b><span>Vous les comparez dans la vraie lumière de la pièce, avec l'architecte ou l'exploitant, avant de vous engager.</span></div></li>
+            <li><span class="k">03</span><div><b>Commander au mètre, au m² ou à l'unité avec le même compte pro</b><span>Le textile se commande au mètre linéaire, le mural et le sol au m², le mobilier à l'unité, le tout dans un seul projet.</span></div></li>
+          </ol>
+          <div class="how-cta">
+            <button class="btn" type="button" data-signup>Ouvrir un compte pro <svg><use href="#i-arrow"/></svg></button>
+            <a class="plain" href="../projet/">Voir mon projet</a>
+            <a class="plain" href="#mur">Revenir au mur</a>
+          </div>
+        </div>
+        <figure class="kit">
+          <div class="kit-box">
+            <div class="kit-lid">
+              <span class="logo logo-sm"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+              <span class="mono">Boîte d'échantillons · 8 places</span>
+            </div>
+            <div class="kit-tray" data-kit aria-hidden="true"></div>
+          </div>
+          <figcaption class="kit-cap" data-kit-cap>Exemple de boîte</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="logo"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+        <p class="foot-pitch">Centrale d'achat pour l'hôtellerie et la restauration, en direct des fabricants européens. Boutique réservée aux professionnels.</p>
+      </div>
+      <div>
+        <h4>Univers</h4>
+        <ul>
+          <li><a class="u-link" style="--u: var(--u-textile)" href="../textile/"><i></i>Direct Textile <small>/textile</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mural)" href="../mural/"><i></i>Direct Mural <small>/mural</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-sol)" href="../sol/"><i></i>Direct Sol <small>/sol</small></a></li>
+          <li><a class="u-link" style="--u: var(--u-mobilier)" href="../mobilier/"><i></i>Direct Mobilier <small>/mobilier</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Matériauthèque</h4>
+        <ul>
+          <li><a href="#nuancier">Nuancier</a></li>
+          <li><a href="matiere/">Matières</a></li>
+          <li><a href="#boite" data-box-open>Boîte d'échantillons</a></li>
+          <li><a href="../projet/">Projet en cours</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Centrale</h4>
+        <ul>
+          <li><a href="../recherche/">Rechercher</a></li>
+          <li>Livraison offerte dès 2&#8239;500 € HT</li>
+          <li>Expédié par l'usine</li>
+          <li><span class="mono">info@directchr.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Direct CHR · prototype local</span>
+      <span>directchr.com · /textile · /mural · /sol · /mobilier</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

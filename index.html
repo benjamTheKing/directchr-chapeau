@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direct CHR — Propositions</title>
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .intro { padding-block: clamp(36px, 5vw, 72px) 24px; display: grid; gap: 16px; }
+  .intro h1 { font-family: var(--f-display); font-weight: 700; font-stretch: 112%; font-size: clamp(32px, 4vw, 56px); line-height: 1; letter-spacing: -0.035em; }
+  .intro h1 .lt { display: block; font-weight: 300; font-stretch: 100%; color: var(--taupe); }
+  .intro p { max-width: 62ch; color: var(--ink-2); font-size: 16px; }
+  .props { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-bottom: 32px; }
+  .prop { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; transition: box-shadow 400ms var(--ease-out), border-color 200ms ease; }
+  @media (hover: hover) and (pointer: fine) { .prop:hover { border-color: var(--line-2); box-shadow: 0 30px 50px -34px rgba(30, 24, 18, 0.5); } }
+  .prop .shot { aspect-ratio: 16 / 9; background: var(--bg-sunk); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .prop .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .prop .body { display: grid; gap: 12px; align-content: start; padding: 18px 20px 20px; }
+  .prop .num { font-family: var(--f-mono); font-size: 12px; color: var(--taupe); }
+  .prop h2 { font-family: var(--f-display); font-weight: 600; font-stretch: 112%; font-size: 26px; letter-spacing: -0.02em; line-height: 1; }
+  .prop .door { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); }
+  .prop .door b { color: var(--ink); font-weight: 500; }
+  .prop p { color: var(--ink-2); font-size: 14.5px; }
+  .prop dl { display: grid; grid-template-columns: auto minmax(0, 1fr); margin: 0; border-top: 1px solid var(--line); font-size: 13px; }
+  .prop dt, .prop dd { margin: 0; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .prop dt { padding-right: 14px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+  .prop dd { color: var(--ink); }
+  .compare { padding-block: 24px clamp(48px, 6vw, 88px); }
+  .note { margin-top: 12px; font-size: 13px; color: var(--ink-3); }
+  @media (max-width: 860px) { .props { grid-template-columns: minmax(0, 1fr); } }
+</style>
+<script src="assets/propositions.js" defer></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-track"><span>directchr.com</span><span class="dot-sep"></span><span>Site chapeau · 4 propositions de structure</span><span class="dot-sep"></span><span>Prototype local, rien n'est publié</span></div></div>
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-row" style="grid-template-columns: auto 1fr">
+      <span class="logo"><span class="logo-a">DIRECT</span><span class="logo-rule"></span><span class="logo-b">CHR</span></span>
+      <span class="mono" style="justify-self:end;font-size:12px;color:var(--ink-3)">12/11/2026</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Site chapeau · /textile · /mural · /sol · /mobilier</p>
+    <h1>Quatre façons d'entrer dans le site. <span class="lt">Le même design, le même compte pro.</span></h1>
+    <p>Les quatre propositions partagent le même design, le compte unique et les quatre univers. Ce qui change, c'est la porte d'entrée : par univers, par espace de l'hôtel, par matière ou par besoin chiffré. Elles se combinent : on peut garder l'accueil de l'une et une section d'une autre.</p>
+    <p>Tout est navigable depuis chacune. On peut parcourir les catalogues <a href="textile/" style="text-decoration:underline">textile</a>, <a href="mural/" style="text-decoration:underline">mural</a>, <a href="sol/" style="text-decoration:underline">sol</a> et <a href="mobilier/" style="text-decoration:underline">mobilier</a>, avec environ 20 articles par catégorie, ouvrir les fiches produit, remplir un <a href="projet/" style="text-decoration:underline">projet</a> et une boîte d'échantillons.</p>
+  </section>
+
+  <section class="props">
+    <a class="prop" href="1-plan/">
+      <div class="shot"><img src="assets/apercus/1.jpg" alt="Aperçu de la proposition 1"></div>
+      <div class="body">
+        <span class="num">Proposition 1</span>
+        <h2>Le plan</h2>
+        <span class="door">On entre par <b>l'univers</b></span>
+        <p>Une chambre d'hôtel en axonométrie : le sol, les murs, le textile et le mobilier sont quatre couches qui s'allument une à une.</p>
+        <dl>
+          <dt>Idée forte</dt><dd>La chambre en couches et les accords de matières</dd>
+          <dt>Pour qui</dt><dd>L'architecte d'intérieur, l'acheteur qui sait quel univers il cherche</dd>
+          <dt>Il faut</dt><dd>Un catalogue par univers, rien de plus</dd>
+        </dl>
+      </div>
+    </a>
+    <a class="prop" href="2-hotel/">
+      <div class="shot"><img src="assets/apercus/2.jpg" alt="Aperçu de la proposition 2"></div>
+      <div class="body">
+        <span class="num">Proposition 2</span>
+        <h2>L'hôtel en coupe</h2>
+        <span class="door">On entre par <b>l'espace</b></span>
+        <p>Un hôtel dessiné en coupe, du spa à la terrasse. On choisit un étage ou un espace, et la page dit ce qu'il faut dans chaque univers.</p>
+        <dl>
+          <dt>Idée forte</dt><dd>Le métré express : nombre de chambres, et les quantités sortent par univers</dd>
+          <dt>Pour qui</dt><dd>L'hôtelier ou le conducteur de travaux qui rénove un étage</dd>
+          <dt>Il faut</dt><dd>Une sélection de produits par espace</dd>
+        </dl>
+      </div>
+    </a>
+    <a class="prop" href="3-materiautheque/">
+      <div class="shot"><img src="assets/apercus/3.jpg" alt="Aperçu de la proposition 3"></div>
+      <div class="body">
+        <span class="num">Proposition 3</span>
+        <h2>La matériauthèque</h2>
+        <span class="door">On entre par <b>la matière et la couleur</b></span>
+        <p>Un mur d'échantillons des quatre univers rangé par couleur, comme dans un showroom, avec un nuancier pour filtrer.</p>
+        <dl>
+          <dt>Idée forte</dt><dd>La boîte d'échantillons, à remplir dans les quatre univers</dd>
+          <dt>Pour qui</dt><dd>Le décorateur, le designer, le bureau d'études</dd>
+          <dt>Il faut</dt><dd>Des photos et des couleurs pour chaque univers, et l'envoi d'échantillons</dd>
+        </dl>
+      </div>
+    </a>
+    <a class="prop" href="4-comptoir/">
+      <div class="shot"><img src="assets/apercus/4.jpg" alt="Aperçu de la proposition 4"></div>
+      <div class="body">
+        <span class="num">Proposition 4</span>
+        <h2>Le comptoir</h2>
+        <span class="door">On entre par <b>le besoin chiffré</b></span>
+        <p>Un outil d'achat : on écrit « 180 ml velours bleu M1 pour le 15/01 », et la page en tire un bon de besoin. Le stock est affiché en direct.</p>
+        <dl>
+          <dt>Idée forte</dt><dd>Le besoin en une ligne, puis l'espace pro : projets, devis, expéditions, réassort</dd>
+          <dt>Pour qui</dt><dd>L'acheteur ou l'économe d'un groupe hôtelier</dd>
+          <dt>Il faut</dt><dd>Des stocks fiables et un espace client plus riche</dd>
+        </dl>
+      </div>
+    </a>
+  </section>
+  <p class="note compare">La barre en bas à gauche permet de passer d'une proposition à l'autre.</p>
+</main>
+</body>
+</html>

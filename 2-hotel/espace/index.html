@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Espace · Direct CHR</title>
+<meta name="description" content="Un espace de l'hôtel et ses quatre univers : textile, revêtements muraux, sols et mobilier, avec les classements à viser et une ambiance prête à chiffrer.">
+<link rel="preload" href="../../assets/fonts/font-archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/font-geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/shared.css">
+<link rel="stylesheet" href="../../assets/catalogue/core.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="espace.css">
+<script src="../../assets/catalogue/core.js" defer></script>
+<script src="../hotel.js" defer></script>
+<script src="espace.js" defer></script>
+<script src="../../assets/propositions.js" defer></script>
+</head>
+<body>
+
+<div data-dchr-header></div>
+
+<main>
+  <section class="ep-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="wrap">
+      <nav class="crumbs ep-crumbs" aria-label="Fil d'Ariane">
+        <a href="../">Accueil</a><span aria-hidden="true">›</span><a href="../#espaces">Espaces</a><span aria-hidden="true">›</span><span aria-current="page" data-crumb>Espace</span>
+      </nav>
+      <div class="ep-hero-in">
+        <div class="ep-copy">
+          <p class="eyebrow" data-lvl></p>
+          <h1 data-title></h1>
+          <p class="ep-lead" data-desc></p>
+          <div class="ep-req-wrap">
+            <p class="ep-req-h"><span>Exigences par univers</span><span>Classement visé</span></p>
+            <ul class="ep-req" data-req></ul>
+          </div>
+          <div class="hero-cta">
+            <a class="btn" href="#ambiance">Composer l'espace <svg><use href="#i-arrow"/></svg></a>
+            <a class="plain" href="#univers">Parcourir les quatre univers</a>
+          </div>
+        </div>
+        <figure class="board ep-board">
+          <div class="board-bar">
+            <span><b>Coupe AA</b> · <span data-cut></span></span>
+            <span>Éch. 1:50</span>
+            <span class="tag">Ambiance proposée</span>
+          </div>
+          <div class="coupe-wrap ep-draw-wrap">
+            <svg class="coupe ep-draw" data-draw role="img" aria-label="Coupe de l'espace, habillée avec l'ambiance proposée"></svg>
+            <span class="esp-lvl" data-draw-lvl></span>
+          </div>
+          <figcaption class="ep-legend" data-legend></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sunk" id="ambiance">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Composer l'espace</p>
+          <h2>L'ambiance proposée, <span class="lt">un produit par univers.</span></h2>
+          <p data-amb-lead>Un produit de départ, et les trois autres univers accordés sur sa couleur et sur l'usage de l'espace.</p>
+        </div>
+        <div class="amb-nav">
+          <span class="mono" data-amb-pos></span>
+          <button class="btn btn-ghost btn-sm" type="button" data-amb-next>Autre accord <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="amb" data-amb></div>
+      <div class="amb-foot">
+        <p class="fine" data-amb-base></p>
+        <div class="amb-act">
+          <a class="link-arrow" href="../../projet/">Voir le projet <span class="hdr-count" data-count="dchr-projet" data-n="0">0</span></a>
+          <button class="btn" type="button" data-amb-add>Tout ajouter au projet <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="univers">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Les quatre univers</p>
+          <h2 data-uni-title>Tout l'espace, <span class="lt">univers par univers.</span></h2>
+          <p>Chaque univers est déjà filtré sur l'espace. Les catégories affinent la sélection, « Tout voir » ouvre le catalogue complet avec le même filtre.</p>
+        </div>
+      </div>
+      <div class="ub-list" data-blocks></div>
+    </div>
+  </section>
+
+  <section class="section section-sunk" id="espaces">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Les autres espaces</p>
+          <h2>Changer d'étage, <span class="lt">même compte, même projet.</span></h2>
+        </div>
+        <a class="link-arrow" href="../#coupe">Revoir la coupe de l'hôtel <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <nav class="ep-switch" data-switch aria-label="Espaces de l'hôtel"></nav>
+    </div>
+  </section>
+</main>
+
+<div data-dchr-footer></div>
+</body>
+</html>
